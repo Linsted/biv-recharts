@@ -13,7 +13,12 @@ interface DashboardGridProps {
 export const DashboardGrid = ({ layout, children }: DashboardGridProps) => {
   return (
     <div
-      style={{ width: "100%", minWidth: 900, maxWidth: 1400, margin: "0 auto" }}
+      style={{
+        width: "100%",
+        minWidth: 1100,
+        maxWidth: 1400,
+        margin: "0 auto",
+      }}
     >
       <ResponsiveGridLayout
         isResizable={false}
