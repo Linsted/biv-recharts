@@ -58,10 +58,10 @@ export const MyDashboardPage = () => {
     metricId: "newCustomers",
     timePeriod,
   }).data;
-  const supportTicketsData = useVisualizationData({
-    metricId: "supportTickets",
-    timePeriod,
-  }).data;
+  //   const supportTicketsData = useVisualizationData({
+  //     metricId: "supportTickets",
+  //     timePeriod,
+  //   }).data;
 
   const layout = [
     { i: "sales-chart", x: 0, y: 0, w: 3, h: 4, isResizable: false },
