@@ -6,6 +6,7 @@ import { LineChartWidget } from "../components/bi-ui-kit/LineChartWidget";
 import { PieChartWidget } from "../components/bi-ui-kit/PieChartWidget";
 import { TimePeriodSelector } from "../components/filters/TimePeriodSelector";
 import { useVisualizationData } from "../hooks/data-adapters/useVisualizationData";
+import { HorizontalGroupedBarChartWidget } from "../components/bi-ui-kit/HorizontalGroupedBarChartWidget";
 
 export const MyDashboardPage = () => {
   const [timePeriod, setTimePeriod] = useState("LAST_7_DAYS");
@@ -63,21 +64,6 @@ export const MyDashboardPage = () => {
   //     timePeriod,
   //   }).data;
 
-  const layout = [
-    { i: "sales-chart", x: 0, y: 0, w: 3, h: 4, isResizable: false },
-    { i: "users-chart", x: 3, y: 0, w: 3, h: 4, isResizable: false },
-    { i: "profit-line", x: 6, y: 0, w: 3, h: 4, isResizable: false },
-    { i: "region-pie", x: 9, y: 0, w: 3, h: 4, isResizable: false },
-    { i: "returns-chart", x: 0, y: 4, w: 3, h: 4, isResizable: false },
-    { i: "profit-margin-line", x: 3, y: 4, w: 3, h: 4, isResizable: false },
-    { i: "expenses-chart", x: 6, y: 4, w: 3, h: 4, isResizable: false },
-    { i: "conversion-line", x: 9, y: 4, w: 3, h: 4, isResizable: false },
-    { i: "satisfaction-chart", x: 0, y: 8, w: 3, h: 4, isResizable: false },
-    { i: "churn-line", x: 3, y: 8, w: 3, h: 4, isResizable: false },
-    { i: "avg-order-value-chart", x: 6, y: 8, w: 3, h: 4, isResizable: false },
-    { i: "new-customers-chart", x: 9, y: 8, w: 3, h: 4, isResizable: false },
-  ];
-
   return (
     <div
       style={{
@@ -90,7 +76,7 @@ export const MyDashboardPage = () => {
       <h1>Dashboard with Global Filters</h1>
       <TimePeriodSelector value={timePeriod} onChange={setTimePeriod} />
       <hr />
-      <DashboardGrid layout={layout}>
+      <DashboardGrid>
         <div key="sales-chart" className="dashboard-item">
           <ChartWidget
             title="Sales"
@@ -197,6 +183,9 @@ export const MyDashboardPage = () => {
             data={newCustomersData}
             dataKey="newCustomers"
           />
+        </div>
+        <div key="horizontal-grouped-bar-chart" className="dashboard-item">
+          <HorizontalGroupedBarChartWidget />
         </div>
       </DashboardGrid>
     </div>
